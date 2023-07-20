@@ -1,0 +1,28 @@
+{% extends 'layout.html' %} 
+{% comment %} Yukarıda anasafaya bağlayacak tanımlamayı yaptık {% endcomment %}
+{% load static %}
+<!--yukarıda static dosyalara ulaşmak için import ettik - -->
+
+
+
+
+
+
+
+{% block content %} 
+    <h1 id="a">{{ kurs }} </h1>
+    <h1>{{ kurs }}</h1>
+
+{% for a in kurs  %}
+<li>{{ a }}</li>
+name2 değişkeni içinde bir for döngüsü oluşturduk
+
+{% endfor %}
+
+
+
+
+
+
+{% endblock  %}
+

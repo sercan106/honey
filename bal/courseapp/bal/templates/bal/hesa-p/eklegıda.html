@@ -1,0 +1,53 @@
+
+{% extends 'ana.html' %} 
+{% load static %}
+{% block orta_alan %}
+<div class="container-md">
+
+
+
+
+
+<form action="{% url 'eklegıda' %}" method="POST" novalidate>
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="form-group{% if field.errors %} has-error{% endif %}">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {% if field.name == 'cinsi' %}
+        <select id="{{ field.id_for_label }}" name="{{ field.name }}">
+          <option value="Tane">Tane</option>
+          <option value="Kilogram">Kilogram(kg)</option>
+          <option value="Litre">Litre</option>
+        </select>
+
+      {% elif field.name == 'gida_adi' %}
+        <select id="{{ field.id_for_label }}" name="{{ field.name }}">
+          {% for entry in entries %}
+          <option value="{{entry.gida_adi}}">{{entry.gida_adi}}</option>
+          
+
+              {% endfor %}
+        </select>
+
+        
+      {% else %}
+        {{ field }}
+      {% endif %}
+
+
+
+
+
+
+
+      
+      {% for error in field.errors %}
+        <span class="help-block">{{ error }}</span>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+
+</div>
+{% endblock orta_alan %}

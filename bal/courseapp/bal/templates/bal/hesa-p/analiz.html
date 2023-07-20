@@ -1,0 +1,41 @@
+{% extends 'ana.html' %} 
+{% load static %}
+{% block orta_alan %}
+<div class="container-md">
+
+    <form action="{% url 'analiz' %}" method="POST" novalidate>
+
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-4 border mt-3"><label for="title">Ay Gİr:</label></div>
+            <div class="col-8 border mt-3"><input type="number" id="number" name="ay"><br></div>
+            <div class="col-4 border mt-3"><label for="title">Yıl Gİr:</label></div>
+            <div class="col-8 border mt-3"><input type="number" id="number" name="yıl"><br></div>
+
+            <div class="col-4 border mt-3"><label for="title">Gıda Adı:</label></div>
+            <div class="col-8 border mt-3">       <input list="cities" name="gıdaismi">
+            <datalist id="cities">
+                {% for entry in entries %}
+            <option value="{{entry.gida_adi}}">
+                {% endfor %}
+            </datalist></div>
+            <div class="col-12 border mt-3 "><input class="container-fluid" type="submit"  value="Gönder"></div>
+        </div>
+        
+    
+
+        
+      </form>
+
+     
+ 
+      {% if toplam %}
+      <p>{{toplam.toplam_tutar}}</p>
+  {% endif %}
+      {% endblock orta_alan %}
+    
+
+
+
+    </div>
+

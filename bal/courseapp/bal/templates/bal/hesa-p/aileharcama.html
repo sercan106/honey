@@ -1,0 +1,64 @@
+{% extends 'ana.html' %}
+{% load static %}
+{% block orta_alan %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aile Bütçesi</title>
+    <link rel="stylesheet" href="{% static 'hesap/css/hesapp.css' %}">
+  
+
+</head>
+<body>
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-12 border container"> Aile Bütçesi </div>
+            
+            <div class="col-4 border"> Gıda </div>
+            <div class="col-4 border"> <button><a href="{% url 'eklegıda' %}">EKLE</a></button><button><a href="{% url 'silgıdaharcama' %}">DÜZENLE</a></button>
+            </div>
+
+            <div class="col-4 border"> {{toplam_gida_harcamasi.toplam_gida_harcamasi}} </div>
+
+
+
+            <div class="col-4 border"> Faturalar </div>
+            <div class="col-4 border"> <button><a href="{% url 'eklegıda' %}">EKLE</a></button></div>
+            <div class="col-4 border"> Tutar </div>
+            
+
+            
+            <div class="col-4 border"> Sağlık </div>
+            <div class="col-4 border"> <button><a href="{% url 'eklegıda' %}">EKLE</a></button></div>
+            <div class="col-4 border"> Tutar </div>
+
+
+            
+            <div class="col-4 border"> Eğlence </div>
+            <div class="col-4 border"> <button><a href="{% url 'eklegıda' %}">EKLE</a></button></div>
+            <div class="col-4 border"> Tutar </div>
+
+
+            
+            <div class="col-4 border"> Ulaşım </div>
+            <div class="col-4 border"> <button><a href="{% url 'eklegıda' %}">EKLE</a></button></div>
+            <div class="col-4 border"> Tutar </div>
+
+
+            
+            <div class="col-4 border"> Eğitim</div>
+            <div class="col-4 border"> <button><a href="{% url 'eklegıda' %}">EKLE</a></button></div>
+            <div class="col-4 border"> Tutar </div>
+
+            <div class="col-4 border"> Diğer</div>
+            <div class="col-4 border"> <button><a href="{% url 'eklegıda' %}">EKLE</a></button></div>
+            <div class="col-4 border"> Tutar </div>
+
+
+
+        </div>
+
+   
+
+{% endblock orta_alan %}

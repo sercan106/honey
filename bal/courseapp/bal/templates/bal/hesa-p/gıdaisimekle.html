@@ -1,0 +1,106 @@
+{% extends 'ana.html' %}
+{% load static %}
+{% block orta_alan %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .alert {
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="container-md">
+    <div class="form-container">
+        <form action="{% url 'gıdaisimekle' %}" method="POST">
+            {% csrf_token %}
+            <label for="title">Başlık:</label>
+            <input type="text" id="title" name="gıdaname"><br>
+    
+            <input type="submit" value="KAYDET">
+        </form>
+    </div>
+    {% if messages %}
+    <div class="alert">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <table>
+        <thead>
+            <tr>
+                <th>Gıda Listesi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in entries %}
+            <tr>
+                <td>
+                    <div>{{ entry.gida_adi }}</div>
+                </td>
+                <td><button><a href="{% url 'gıda_sil' entry.id %}">SİL</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock orta_alan %}
+
+
+

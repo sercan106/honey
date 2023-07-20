@@ -1,0 +1,20 @@
+{% extends 'ana.html' %} 
+{% comment %} Yukarıda anasafaya bağlayacak tanımlamayı yaptık {% endcomment %}
+{% load static %}
+{% block orta_alan %}
+
+<div class="container-md">
+
+<h1>burası kart silme sayfasıdır</h1>
+
+<form method="POST" novalidate>
+    {% csrf_token %}
+    <p>{{ form.isim }} adlı veriyi silmek istiyor musun?</p>
+    <button type="submit"> EVET</button>
+    <a href="/kartlar"> HAYIR</a>
+  </form>
+
+
+</div>
+
+{% endblock orta_alan %}

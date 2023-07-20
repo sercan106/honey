@@ -1,0 +1,71 @@
+{% extends 'ana.html' %}
+{% load static %}
+{% block css_files %}
+
+    <link rel="apple-touch-icon" href="{% static 'bal/img/apple-icon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'bal/img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'bal/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bal/css/templatemo.css' %}">
+    <link rel="stylesheet" href="{% static 'bal/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'bal/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap' %}">
+    {% endblock css_files %}
+    
+{% block js_alani %}
+    <script src="{% static 'bal/js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'bal/js/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'bal/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'bal/js/templatemo.js' %}"></script>
+    <script src="{% static 'bal/js/custom.js' %}"></script>
+    {% endblock js_alani %}
+
+{% block title %}<title>Upload</title>{% endblock title %}
+
+
+
+{% block orta_alan %}
+
+
+
+
+
+    
+    <div class="container mt-5 mb-5 ">
+    
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group">
+              <label for="id_ad">Ürün Adı:</label>
+              {{ form.ad }}
+            </div>
+            
+            <div class="form-group">
+              <label for="id_aciklama">Ürün Açıklaması:</label>
+              {{ form.aciklama }}
+            </div>
+            
+            <div class="form-group">
+              <label for="id_fiyat">Ürün Fiyatı:</label>
+              {{ form.fiyat }}
+            </div>
+            
+            <div class="form-group">
+              <label for="id_resim">Ürün Resmi:</label>
+              {{ form.resim }}
+            </div>
+            <div class="form-group">
+              <label for="id_resim">Ürün Aktifmi ?:</label>
+              {{ form.isActive }}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+          </form>
+          
+    
+    </div>
+    
+  
+
+
+{% endblock orta_alan %}

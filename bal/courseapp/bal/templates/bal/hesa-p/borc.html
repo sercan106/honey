@@ -1,0 +1,50 @@
+{% extends 'ana.html' %}
+{% load static %}
+{% block orta_alan %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'hesap/css/hesapp.css' %}">
+
+    <title>Borc</title>
+</head>
+
+
+<div class="container-md">
+  <table>
+    <thead>
+      <tr>
+        <th>Ödemeler (Düzenli)</th>
+        <th>Ödeme Tutarı</th>
+        <th>Ödeme Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for entry in entries %}
+      <tr>
+        
+        <td>{{entry.isim}}</td>
+        <td>{{entry.miktar}}</td>
+        <td>{{entry.ödeme_tarihi}}</td>
+
+        <td>
+              <div class="button">
+              <a href="{% url 'sonuc' entry.id %}"> SİL</a>
+        </td>
+      </tr>
+
+      
+      {% endfor %}
+
+      <td><a href="{% url 'ekle'%}">Düzenli Ödeme Ekle</a></td>
+      <td><a href="{% url 'borc'%}">Güncel Borç Öğrenme</a></td>
+    </tbody>
+  </table>
+</div>
+
+
+
+</html>{% endblock orta_alan %}

@@ -1,0 +1,46 @@
+{% extends 'ana.html' %} 
+{% load static %}
+{% block orta_alan %}
+<div class="container-md">
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>burası ekleme sayfasıdır</h1>
+
+   
+    
+  <h1>Kategori Ekle</h1>
+  
+  <form action="{% url 'ekle' %}" method="POST" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group{% if field.errors %} has-error{% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+        {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Gönder</button>
+  </form>
+
+
+
+
+</body>
+</html>
+
+
+
+</div>
+{% endblock orta_alan %}

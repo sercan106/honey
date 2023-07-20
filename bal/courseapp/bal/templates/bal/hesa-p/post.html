@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="{% url 'post' %}" method="POST">
+        {% csrf_token %}
+        <label for="title">Başlık:</label>
+        <input type="text" id="title" name="başlık"><br>
+      
+        <label for="content">İçerik:</label>
+        <textarea id="content" name="içerik"></textarea><br>
+      
+        <label for="image">Resim:</label>
+        <input type="text" id="image" name="imgurl"><br>
+      
+        <label for="isactive">Aktif mi:</label>
+        <input type="checkbox" id="isactive" name="isActive"><br>
+      
+        <input type="submit" value="Gönder">
+      </form>
+    
+</body>
+</html>

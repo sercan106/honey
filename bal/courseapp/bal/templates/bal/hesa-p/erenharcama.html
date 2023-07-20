@@ -1,0 +1,118 @@
+{% extends 'ana.html' %}
+{% load static %}
+{% block orta_alan %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eren Harcama</title>
+    <link rel="stylesheet" href="{% static 'hesap/css/hesapp.css' %}">
+  
+
+</head>
+<body>
+  
+
+
+
+    <form action="{% url 'erenharcama' %}" method="POST" novalidate>
+        {% csrf_token %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 border container"> Eren Bütçe </div>
+                
+                <div class="col-3 border bg-info"> Harcama Adı </div>
+                <div class="col-3 border bg-info"> Harcama Tutarını Gİr </div>
+                <div class="col-3 border bg-info"> Düzenle</div>
+                <div class="col-3 border bg-info"> Toplam Tutar</div>
+
+                <div class="col-3 border"> Ulaşım </div>
+                <div class="col-3 border"> <input type="number" name="Ulaşım"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Ulaşım.toplam_tutar}}</div>
+    
+                <div class="col-3 border"> Dışarda Yemek </div>
+                <div class="col-3 border"> <input type="number" name="Dışarda Yemek"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Dışarda_Yemek.toplam_tutar}}</div> 
+                
+                <div class="col-3 border"> Sağlık </div>
+                <div class="col-3 border"> <input type="number" name="Sağlık"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Sağlık.toplam_tutar}}</div>    
+                
+                <div class="col-3 border"> Eğitim </div>
+                <div class="col-3 border"> <input type="number" name="Eğitim"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Eğitim.toplam_tutar}} </div>    
+                
+                <div class="col-3 border"> Hobi </div>
+                <div class="col-3 border"> <input type="number" name="Hobi"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Hobi.toplam_tutar}} </div>    
+                
+                <div class="col-3 border"> Yakıt Masrafı</div>
+                <div class="col-3 border"> <input type="number" name="Yakıt Masrafı"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Yakıt_Masrafı.toplam_tutar}} </div>
+    
+                <div class="col-3 border"> Sigara</div>
+                <div class="col-3 border"> <input type="number" name="Sigara"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Sigara.toplam_tutar}} </div>
+       
+                <div class="col-3 border"> Hediye</div>
+                <div class="col-3 border"> <input type="number" name="Hediye"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Hediye.toplam_tutar}} </div>    
+    
+                <div class="col-3 border"> Ayakkabı/Giyim</div>
+                <div class="col-3 border"> <input type="number" name="Ayakkabı/Giyim"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Ayakkabı_Giyim.toplam_tutar}} </div>
+    
+                <div class="col-3 border"> Kuaför</div>
+                <div class="col-3 border"> <input type="number" name="Kuaför"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Kuaför.toplam_tutar}} </div>
+    
+                <div class="col-3 border"> Kişisel Malzeme</div>
+                <div class="col-3 border"> <input type="number" name="Kişisel Malzeme"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Kişisel_Malzeme.toplam_tutar}} </div>
+    
+                <div class="col-3 border"> Kredi Kartı Borcu</div>
+                <div class="col-3 border"> <input type="number" name="Kredi Kartı Borcu"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Kredi_Kartı_Borcu.toplam_tutar}} </div>
+
+
+                <div class="col-3 border"> Cep Telefonu</div>
+                <div class="col-3 border"> <input type="number" name="Cep Telefonu"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Cep_Telefonu.toplam_tutar}} </div>
+
+                <div class="col-3 border"> Diğer</div>
+                <div class="col-3 border"> <input type="number" name="Diğer"> TL</div>
+                <div class="col-3 border"> <button><a href="{% url 'silerenharcama' %}">DÜZENLE</a></button></div>
+                <div class="col-3 border">{{Diğer.toplam_tutar}} </div>
+        
+            </div>
+     
+
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock orta_alan %}

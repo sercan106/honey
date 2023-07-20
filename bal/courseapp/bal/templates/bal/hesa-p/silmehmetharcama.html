@@ -1,0 +1,58 @@
+{% extends 'ana.html' %}
+{% load static %}
+
+{% block orta_alan %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'hesap/css/hesapp.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Mehmet</title>
+</head>
+
+<body>
+  <div class="container-md">
+    <table>
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Ürün Tutarı</th>
+                <th>Ürün Kayıt Tarihi</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry.isim }}</td>
+                <td>{{ entry.tutar }}</td>
+                <td>{{ entry.kayit_tarihi }}</td>
+                
+                <td><form method="POST" novalidate>
+                    {% csrf_token %}
+                    
+                    <button class="button-link" type="submit" value={{ entry.id }} name="id_no"> SİL</button>
+                </form></td>
+                
+         
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="5">
+                    <div class="button">
+                        
+                        <a href="{% url 'ekle' %}" class="button-link">Düzensiz Ödeme Ekle</a>
+                        <a href="{% url 'mehmetharcama' %}" class="button-link">Harcama Ekle</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock orta_alan %}

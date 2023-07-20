@@ -1,0 +1,34 @@
+{% extends 'ana.html' %} 
+{% comment %} Yukarıda anasafaya bağlayacak tanımlamayı yaptık {% endcomment %}
+{% load static %}
+{% block orta_alan %}
+
+<div class="container-md">
+  <h1>İlk Harfi Büyük Yaz</h1>
+  
+  <form action="{% url 'kart_ekle' %}" method="POST" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group{% if field.errors %} has-error{% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+        {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Gönder</button>
+  </form>
+
+
+
+</div>
+
+
+
+
+{% endblock orta_alan %}
+
+
+  
+

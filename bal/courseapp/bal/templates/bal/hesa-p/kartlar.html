@@ -1,0 +1,52 @@
+{% extends 'ana.html' %} 
+{% comment %} Yukarıda anasafaya bağlayacak tanımlamayı yaptık {% endcomment %}
+{% load static %}
+{% block orta_alan %}
+
+<div class="container-md">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'hesap/css/hesapp.css' %}">
+
+
+    <title>hesap</title>
+</head>
+
+
+    <table>
+      <thead>
+        
+        <tr>
+          <th>Kartlar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for entry in entries %}
+        <tr>
+          <td>{{ entry.isim }}</td>
+          <td>
+            <div class="button">
+              <a class="button-link" href="{% url 'kart_sil' entry.id %}">SİL</a>
+              <a class="button-link" href="{% url 'sonuc' entry.id %}">GİRİŞ</a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="2">
+            <div class="button">
+              <a class="button-link" href="{% url 'kart_ekle' %}">Kart Ekle</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</div>
+
+{% endblock orta_alan %}
